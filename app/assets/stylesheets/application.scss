@@ -13,3 +13,38 @@
  *= require_tree .
  *= require_self
  */
+
+/* Bootstrap */
+@import "bootstrap";
+
+/* Google Fonts */
+
+
+///// header&footer /////
+header, footer {
+    background-color: #002846;
+    color: #fff;
+}
+
+header .container, footer .container {
+    padding: 0;
+}
+
+.header-logo {
+    padding: 15px 5px;
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.footer-logo {
+    padding: 25px 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+///// main /////
+main {
+    background-color: #c0d7d2;
+}
