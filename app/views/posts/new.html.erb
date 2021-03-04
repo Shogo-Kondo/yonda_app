@@ -1,0 +1,15 @@
+<%= form_tag("/posts/edit") do %>
+    <div class="container">
+        <p>タイトル</p>
+        <input type="text" name="title">
+        <p>著者</p>
+        <input type="text" name="author">
+        <p>出版社</p>
+        <input type="text" name="publisher">
+        <p>評価</p>
+        <input type="text" name="evaluate">
+        <p>コメント</p>
+        <textarea name="content"></textarea>
+        <p><input type="submit" value="作成"></p>
+    </div>
+<% end %>
