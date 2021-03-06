@@ -1,3 +1,76 @@
 // Place all the styles related to the post controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.post-btn {
+    text-align: right;
+    margin-top: 8px;
+}
+
+.post-btn a {
+    font-size: 18px;
+    margin: 10px 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #3397bd;
+    color: #fff;
+}
+
+.post-btn a:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
+
+.posts {
+    margin: 20px 10px;
+    background-color: #fff;
+}
+
+.post-item {
+    padding: 10px;
+    border-bottom: solid 1px #a9a9a9;
+}
+
+.post-info {
+    width: 60%;
+    padding: 20px;
+    margin: 30px auto;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.post-info p {
+    color: gray;
+}
+
+.post-info input{
+    font-size: 18px;
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: solid 1px gray;
+}
+
+.post-info textarea {
+    width: 100%;
+    height: 200px;
+    padding: 5px;
+    margin-bottom: 30px;
+    border-radius: 3px;
+
+}
+
+.post-info input:focus,
+.post-info textarea:focus {
+    outline: none;
+    border-bottom: solid 2px #008080;
+}
+
+.post-btn input {
+    border-bottom: none;
+    border-radius: 3px;
+    color: #fff;
+    background-color: #008080;
+}

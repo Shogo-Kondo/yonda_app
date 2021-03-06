@@ -1,7 +1,21 @@
 <div class="row">
-    <div class="col-4"></div>
+    <div class="col-4">
+        <p>ホーム</p>
+        <p>プロフィール</p>
+        <p>お気に入り</p>
+        <p>ランキング</p>
+    </div>
     <div class="col-8">
-        <%= link_to("読んだ", "/posts/new") %>
-        postたち
+        <div class="post-btn">
+            <%= link_to("yonda!", "/posts/new") %>
+        </div>
+        <div class="posts">
+            <% @posts.each do |post| %>
+                <div class="post-item">
+                    <p><%= post.title %></p>
+                    <p><%= post.author%></p>
+                </div>
+            <% end %>
+        </div>
     </div>
 </div>

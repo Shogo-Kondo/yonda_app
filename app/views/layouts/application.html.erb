@@ -14,15 +14,17 @@
 
   <body>
     <header>
-      <div class="container">
-        <p class="header-logo">yonda</p>
-        <%= link_to("新規登録", "/signup") %>
-        <%= link_to("ログイン", "/login") %>
+      <div class="container clearfix">
+        <%= link_to("yonda", "/posts/index", class: "header-logo") %>
+        <ul class="header-menu">
+          <%= link_to("新規登録", "/signup", class: "header-item") %>
+          <%= link_to("ログイン", "/login", class: "header-item") %>
+        </ul>
       </div>
     </header>
 
     <main>
-      <div class="container">
+      <div class="container" id="wrap">
         <%= yield %>
       </div>
     </main>

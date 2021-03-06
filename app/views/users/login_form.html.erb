@@ -1,7 +1,9 @@
-<%= form_tag("/login") do %>
-    <p>user name</p>
-    <input name="user_name">
-    <p>password</p>
-    <input type="password" name="password">
-    <p><input type="submit" value="ログイン"></p>
-<% end %>
+<div class="login-form">
+    <%= form_tag("/login") do %>
+        <p>ユーザー名</p>
+        <input name="user_name" autocomplete="off">
+        <p>パスワード</p>
+        <input type="password" name="password">
+        <p class="login-btn"><input type="submit" value="ログイン"></p>
+    <% end %>
+</div>

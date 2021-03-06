@@ -20,31 +20,71 @@
 /* Google Fonts */
 
 
-///// header&footer /////
-header, footer {
-    background-color: #002846;
-    color: #fff;
-}
-
-header .container, footer .container {
+///// common /////
+.container {
     padding: 0;
 }
 
+.clearfix {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+
+
+///// header /////
+header {
+    height: 70px;
+    background-color: #002846;
+}
+
 .header-logo {
-    padding: 15px 5px;
-    margin: 0;
-    font-size: 24px;
+    float: left;
+    line-height: 70px;
+    font-size: 28px;
     font-weight: bold;
+    color: #fff;
 }
 
-.footer-logo {
-    padding: 25px 5px;
-    font-size: 18px;
-    font-weight: bold;
+.header-logo:hover {
+    text-decoration: none;
+    color: #fff;
 }
 
+.header-menu {
+    float: right;
+    line-height: 70px;
+}
+
+.header-item {
+    padding-left: 25px;
+    color: #fff;
+}
+
+.header-item:hover {
+    text-decoration: none;
+    color: #d3d3d3;
+}
 
 ///// main /////
 main {
     background-color: #c0d7d2;
+}
+
+#wrap {
+    overflow: hidden;
+}
+
+///// footer /////
+footer {
+    height: 50px;
+    background-color: #002846;
+    color: #fff;
+}
+
+.footer-logo {
+    text-align: center;
+    line-height: 50px;
+    font-size: 16px;
 }
