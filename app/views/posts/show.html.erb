@@ -1,0 +1,11 @@
+<div>
+    <p>タイトル</p>
+    <%= @post.title %>
+    <p>著者</p>
+    <%= @post.author %>
+    <p>出版社</p>
+    <p>評価</p>
+    <p>コメント</p>
+</div>
+<%= link_to("編集", "/posts/#{@post.id}/edit") %>
+<%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>

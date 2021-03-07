@@ -1,0 +1,20 @@
+<p>編集</p>
+<% @post.errors.full_messages.each do |msg| %>
+    <div class="form-error">
+    <%= msg %>
+    </div>
+<% end %>
+
+<%= form_tag("/posts/#{@post.id}/update") do %>
+    <div>
+        <p>タイトル</p>
+        <input value="<%= @post.title %>" name="title">
+        <p>著者</p>
+        <input value="<%= @post.author %>" name="author">
+        <p>出版社</p>
+        <p>評価</p>
+        <p>コメント</p>
+        <textarea value="<%= @post.content %>" name="content"></textarea>
+    </div>
+    <input type="submit" value="更新">
+<% end %>

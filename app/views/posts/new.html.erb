@@ -1,7 +1,13 @@
-<%= form_tag("/posts/edit") do %>
+<% @post.errors.full_messages.each do |msg| %>
+    <div class="form-error">
+    <%= msg %>
+    </div>
+<% end %>
+
+<%= form_tag("/posts/create") do %>
     <div class="post-info">
         <span>タイトル</span>
-        <input type="text" name="title">
+        <input type="text" name="title" value="<%= @post.title %>">
         <span>著者</span>
         <input type="text" name="author">
         <span>出版社</span>
@@ -10,6 +16,6 @@
         <input type="text" name="evaluate">
         <span>コメント</span>
         <textarea name="content"></textarea>
-        <p class="post-btn"><input type="submit" value="作成"></p>
+        <p class="post-btn"><input type="submit" value="投稿"></p>
     </div>
 <% end %>
