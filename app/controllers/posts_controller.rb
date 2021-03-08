@@ -53,10 +53,10 @@ class PostsController < ApplicationController
     redirect_to("/posts/index")
   end
 
-  def fav
+  def ranking
   end
 
-  def ranking
+  def favorite
   end
 
 end

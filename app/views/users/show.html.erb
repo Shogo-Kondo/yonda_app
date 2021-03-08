@@ -1,0 +1,10 @@
+<div>
+    <p>ユーザ名</p>
+    <%= @user.user_name %>
+    <div class="icon"></div>
+    <p>bioとか</p>
+    <%= link_to("編集", "/users/#{@user.id}/edit") %>
+</div>
+<div>
+    ユーザの投稿欄
+</div>
