@@ -5,15 +5,16 @@ Rails.application.routes.draw do
   get "about" => "home#about"
 
   # users controller
-  post "users/:id/update" => "users#update"
+  get "login" => "users#login_form"
+  post "login" => "users#login"
+  post "logout" => "users#logout"
+  
   get "users/:id/edit" => "users#edit"
+  post "users/:id/update" => "users#update"
   get "users/index" => "users#index"
   get "users/:id" => "users#show"
   get "signup" => "users#new"
   post "users/create" => "users#create"
-  
-  get "login" => "users#login_form"
-  post "login" => "users#login"
 
   # posts controller
   get "posts/index" => "posts#index"

@@ -15,10 +15,19 @@
   <body>
     <header>
       <div class="container clearfix">
-        <%= link_to("yonda", "/posts/index", class: "header-logo") %>
+        <% if @current_user %>
+          <%= link_to("yonda", "/posts/index", class: "header-logo") %>
+        <% else %>
+          <%= link_to("yonda", "/", class: "header-logo") %>
+        <% end %>
         <ul class="header-menu">
-          <%= link_to("新規登録", "/signup", class: "header-item") %>
-          <%= link_to("ログイン", "/login", class: "header-item") %>
+          <% if session[:user_id] %>
+            <span style="color: white"><%= @current_user.user_name %></span>
+            <%= link_to("ログアウト", "/logout", {method: :post}) %>
+          <% else %>
+            <%= link_to("新規登録", "/signup", class: "header-item") %>
+            <%= link_to("ログイン", "/login", class: "header-item") %>
+          <% end %>  
         </ul>
       </div>
     </header>

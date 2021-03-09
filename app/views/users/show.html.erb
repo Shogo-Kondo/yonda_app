@@ -3,7 +3,9 @@
     <%= @user.user_name %>
     <div class="icon"></div>
     <p>bioとか</p>
-    <%= link_to("編集", "/users/#{@user.id}/edit") %>
+    <% if @user.id == @current_user.id %>
+        <%= link_to("編集", "/users/#{@user.id}/edit") %>
+    <% end %>
 </div>
 <div>
     ユーザの投稿欄
