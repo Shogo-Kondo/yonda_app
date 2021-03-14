@@ -1,14 +1,15 @@
-<% if @error_message %>
-    <div class="form-error">
-        <%= @error_message %>
-    </div>
-<% end %>
-
 <div class="login-form">
+    <p class="form-title">yondaにログイン</p>
+    <!-- ログイン失敗時アラートを表示 -->
+    <% if @error_message %>
+        <div class="form-error">
+            <%= @error_message %>
+        </div>
+    <% end %>
     <%= form_tag("/login") do %>
-        <p>ユーザー名</p>
-        <input name="user_name" autocomplete="off">
-        <p>パスワード</p>
+        <p class="form-item">ユーザー名</p>
+        <input name="user_name" autocomplete="off" value="<%= @user_name %>">
+        <p class="form-item">パスワード</p>
         <input type="password" name="password">
         <p class="login-btn"><input type="submit" value="ログイン"></p>
     <% end %>

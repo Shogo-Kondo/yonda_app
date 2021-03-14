@@ -1,14 +1,15 @@
-<% @user.errors.full_messages.each do |msg| %>
-    <div class="form-error">
-        <%= msg %>
-    </div>
-<% end %>
-
 <div class="signup-form">
+    <p class="form-title">アカウントを作成</p>
+    <!-- 新規登録の検証失敗時アラートを表示 -->
+    <% @user.errors.full_messages.each do |message| %>
+        <div class="form-error">
+            <%= message %>
+        </div>
+    <% end %>
     <%= form_tag("/users/create") do %>
-        <p>ユーザー名</p>
+        <p class="form-item">ユーザー名</p>
         <input name="user_name" value="<%= @user.user_name %>" autocomplete="off">
-        <p>パスワード</p>
+        <p class="form-item">パスワード</p>
         <input type="password" name="password" value="<%= @user.password %>" >
         <p class="signup-btn"><input type="submit" value="新規登録"></p>
     <% end %>

@@ -6,10 +6,15 @@
 
 <%= form_tag("/users/#{@user.id}/update") do %>
     <div>
+        <p>ニックネーム</p>
+        <input name="nickname" value="<%= @user.nickname %>">
+        <!--
         <p>ユーザ名</p>
         <input name="user_name" value="<%= @user.user_name %>">
+        -->
         <div class="icon"></div>
-        <p>bioとか</p>
+        <p>biography</p>
+        <textarea name="biography"><%= @user.biography %></textarea>
         <input type="submit" value="更新">
     </div>
 <% end %>

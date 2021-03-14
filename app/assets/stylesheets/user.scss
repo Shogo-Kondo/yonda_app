@@ -2,23 +2,37 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+// form
 .login-form,
 .signup-form {
-    width: 40%;
-    padding: 40px;
-    margin: 30px auto 60px;
-    border-radius: 10px;
+    width: 400px;
+    margin: 40px auto 80px;
+    padding: 50px;
+    border-radius: 8px;
     background-color: #fff;
+}
+
+.form-title {
+    color: #808080;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.form-item {
+    margin-bottom: 5px;
+    color: #808080;
+    font-size: 14px;
 }
 
 .login-form input,
 .signup-form input {
-    font-size: 18px;
     width: 100%;
-    padding: 5px;
     margin-bottom: 30px;
+    padding: 5px;
     border: none;
-    border-bottom: solid 1px gray;
+    border-bottom: solid 1px #d3d3d3;
+    font-size: 18px;
 }
 
 .login-form input:focus,
@@ -30,17 +44,95 @@
 .login-btn input,
 .signup-btn input {
     height: 50px;
-    margin-bottom: 0;
+    margin: 10px 0 0;
     border-bottom: none;
     border-radius: 3px;
-    color: #fff;
     background-color: #008080;
+    color: #fff;
 }
 
+.form-error {
+    padding-bottom: 10px;
+    color: #ff0000;
+    font-size: 12px;
+    text-align: center;
+}
+
+
+.user-profile {
+    padding: 20px;
+    border-radius: 3px;
+    background-color: #fff;
+}
+
+.posts-area {
+    background-color: #fff;
+}
+
+.post-item {
+    padding: 10px 20px;
+    border-bottom: solid 1px #a9a9a9;
+}
+
+.post-item p {
+    margin-bottom: 0;
+    color: black;
+}
+
+// user show
+.user-profile i {
+    float: right;
+    color: gray;
+}
+
+.user-profile li {
+    list-style: none;
+}
+
+.nickname {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.user-id {
+    color: gray;
+    font-size: 14px;
+}
+
+.bio {
+    margin-top: 15px;
+}
+
+/*
 .icon {
     width: 64px;
     height: 64px;
     background-image: url(/default_icon_64.jpeg);
     border-radius: 64px;
     border: 2px solid gray;
+}
+*/
+
+.post-item i {
+    padding-right: 5px;
+}
+
+.post-title {
+    font-size: 16px;
+}
+
+.post-author {
+    margin-top: 3px;
+    font-size: 14px;
+}
+
+.post-date {
+    margin-top: 10px;
+    color: gray;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.user-menu {
+    background-color: #fff;
 }

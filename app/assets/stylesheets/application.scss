@@ -14,29 +14,28 @@
  *= require_self
  */
 
-/* Bootstrap */
+// Bootstrap
 @import "bootstrap";
 
-/* Google Fonts */
-
-
-///// common /////
+// common
 .container {
     padding: 0;
 }
 
-.clearfix {
+.clearfix:after {
     display: block;
-    content: "";
     clear: both;
+    content: "";
 }
 
+a:hover {
+    text-decoration: none;
+}
 
-
-///// header /////
+// header
 header {
     height: 70px;
-    background-color: #002846;
+    background-color: #07575b;
 }
 
 .header-logo {
@@ -44,11 +43,10 @@ header {
     line-height: 70px;
     font-size: 28px;
     font-weight: bold;
-    color: #fff;
+    letter-spacing: 2px;
 }
 
-.header-logo:hover {
-    text-decoration: none;
+.header-logo a {
     color: #fff;
 }
 
@@ -58,18 +56,23 @@ header {
 }
 
 .header-item {
-    padding-left: 25px;
+    display: inline-block;
+    list-style: none;
+    padding-left: 20px;
     color: #fff;
 }
 
-.header-item:hover {
-    text-decoration: none;
-    color: #d3d3d3;
+.header-item a {
+    color: #fff;
+}
+
+.header-item i {
+    padding-right: 5px;
 }
 
 ///// main /////
 main {
-    background-color: #c0d7d2;
+    background-color: #c4dfe6;
 }
 
 #wrap {
@@ -79,12 +82,12 @@ main {
 ///// footer /////
 footer {
     height: 50px;
-    background-color: #002846;
+    background-color: #07575b;
     color: #fff;
 }
 
 .footer-logo {
-    text-align: center;
     line-height: 50px;
     font-size: 16px;
+    text-align: center;
 }

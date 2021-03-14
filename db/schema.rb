@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_03_130849) do
+ActiveRecord::Schema.define(version: 2021_03_14_131519) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
@@ -29,14 +29,16 @@ ActiveRecord::Schema.define(version: 2021_03_03_130849) do
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "posted_user"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "user_name"
     t.string "password"
-    t.text "biography"
+    t.text "biography", default: "自己紹介を追加しましょう"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "nickname"
   end
 
 end

@@ -1,47 +1,56 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <title>Yonda</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Yonda</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    </head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+  </head>
 
   <body>
     <header>
       <div class="container clearfix">
-        <% if @current_user %>
-          <%= link_to("yonda", "/posts/index", class: "header-logo") %>
-        <% else %>
-          <%= link_to("yonda", "/", class: "header-logo") %>
-        <% end %>
+        <div class="header-logo">
+          <% if @current_user %>
+            <%= link_to("yonda", "/users/#{@current_user.id}") %>
+          <% else %>
+            <%= link_to("yonda", "/") %>
+          <% end %>
+        </div>
         <ul class="header-menu">
           <% if session[:user_id] %>
-            <span style="color: white"><%= @current_user.user_name %></span>
-            <%= link_to("ログアウト", "/logout", {method: :post}) %>
+            <li class="header-item">
+              <%= link_to("/users/#{@current_user.id}") do %>
+                <%= "@" %><%= @current_user.user_name %>
+              <% end %>
+            </li>
+            <li class="header-item"><i class="fas fa-sign-out-alt"></i><%= link_to("ログアウト", "/logout", method: :post) %></li>
           <% else %>
-            <%= link_to("新規登録", "/signup", class: "header-item") %>
-            <%= link_to("ログイン", "/login", class: "header-item") %>
-          <% end %>  
+            <li class="header-item"><i class="fas fa-user-plus"></i><%= link_to("新規登録", "/signup") %></li>
+            <li class="header-item"><i class="fas fa-sign-in-alt"></i><%= link_to("ログイン", "/login") %></li>
+          <% end %>
         </ul>
       </div>
     </header>
 
     <main>
-      <div class="container" id="wrap">
+      <div  id="wrap" class="container">
         <%= yield %>
       </div>
     </main>
 
     <footer>
       <div class="container">
-        <p class="footer-logo">yonda</p>
+        <div class="footer-logo">
+          <span>yonda</span>
+        </div>
       </div>
     </footer>
   </body>
+
 </html>

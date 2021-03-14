@@ -1,3 +1,115 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// top
+.service-title {
+    margin: 40px 0 50px;
+}
+
+.service-title p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.service-title h1 {
+    font-size: 48px;
+}
+
+.service-info {
+    display: inline-block;
+    margin-bottom: 60px;
+    border-bottom: 1px solid #211E55;
+}
+
+.service-info h2 {
+    font-size: 28px;
+}
+
+.service-info p {
+    font-size: 18px;
+}
+
+.about {
+    padding-bottom: 20px;
+}
+
+.about a {
+    margin-bottom: 30px;
+    color: #211E55;
+    font-size: 16px;
+}
+
+.about:hover {
+    opacity: 0.8;
+}
+
+.about i {
+    color: #211E55;
+}
+
+.top-right {
+    margin: 20px 0 30px;
+    border-left: 1px solid #211E55;
+}
+
+.signup-link {
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    margin: 15px 0 20px;
+    border-radius: 3px;
+    background-color: #008080;
+    color: #fff;
+    text-align: center;
+}
+
+.signup-link:hover {
+    color: #fff;
+}
+
+.description {
+    color: #211E55;
+    font-size: 12px;
+}
+
+// about
+.about-service {
+    margin: 30px 0;
+    color: #211E55;
+}
+
+.about-service h1 {
+    font-size: 24px;
+    text-align: center;
+}
+
+.about-service p {
+    font-size: 16px;
+    text-align: center;
+}
+
+.about-content {
+    padding: 30px 0 20px;
+}
+
+.about-item {
+    font-size: 16px;
+    list-style: none;
+}
+
+.about-item i {
+    padding-bottom: 15px;
+    font-size: 40px;
+}
+
+.about-service .signup-link {
+    display: inline-block;
+    margin: 30px 0 70px;
+    font-size: 16px;
+}
+
+.about-service .signup-link a {
+    padding: 20px;
+    color: #fff;
+}

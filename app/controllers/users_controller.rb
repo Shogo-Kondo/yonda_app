@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+    @posts = Post.where(posted_user: @user.id).order(created_at: :desc).page(params[:page]).per(2)
   end
 
   def new
@@ -31,7 +32,9 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find_by(id: params[:id])
-    @user.user_name = params[:user_name]
+    @user.nickname = params[:nickname]
+    # @user.user_name = params[:user_name]
+    @user.biography = params[:biography]
     if @user.save
       redirect_to("/users/#{@user.id}")
     else
@@ -46,7 +49,7 @@ class UsersController < ApplicationController
     @user = User.find_by(user_name: params[:user_name], password: params[:password])
     if @user
       session[:user_id] = @user.id
-      redirect_to("/posts/index")
+      redirect_to("/users/#{@user.id}")
     else
       @error_message = "メールアドレスまたはパスワードが間違っています"
       @user_name = params[:user_name]

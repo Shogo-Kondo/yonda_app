@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   # 投稿一覧
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.all.order(created_at: :desc).page(params[:page]).per(2)
   end
 
   # 投稿詳細
@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(title: params[:title], author: params[:author])
+    @post = Post.new(title: params[:title], author: params[:author], posted_user: @current_user.id)
     if @post.save
       # 保存成功
       redirect_to("/posts/index")

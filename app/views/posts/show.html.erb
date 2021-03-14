@@ -7,5 +7,9 @@
     <p>評価</p>
     <p>コメント</p>
 </div>
-<%= link_to("編集", "/posts/#{@post.id}/edit") %>
-<%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>
+<%= link_to "/posts/#{@post.id}/edit" do %>
+    <i class="fas fa-pen"></i>
+<% end %>
+<%= link_to "/posts/#{@post.id}/destroy", method: "post", data: {confirm: "削除しますか？"} do %>
+    <i class="fas fa-trash"></i>
+<% end %>
