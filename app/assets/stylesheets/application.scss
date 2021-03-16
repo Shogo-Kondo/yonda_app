@@ -22,14 +22,9 @@
     padding: 0;
 }
 
-.clearfix:after {
-    display: block;
-    clear: both;
-    content: "";
-}
-
 a:hover {
     text-decoration: none;
+    opacity: 0.8;
 }
 
 // header

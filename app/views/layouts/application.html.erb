@@ -17,9 +17,9 @@
       <div class="container clearfix">
         <div class="header-logo">
           <% if @current_user %>
-            <%= link_to("yonda", "/users/#{@current_user.id}") %>
+            <p><%= link_to("yonda", "/users/#{@current_user.id}") %></p>
           <% else %>
-            <%= link_to("yonda", "/") %>
+            <p><%= link_to("yonda", "/") %></p>
           <% end %>
         </div>
         <ul class="header-menu">

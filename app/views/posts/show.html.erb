@@ -1,4 +1,4 @@
-<div>
+<div class="post-detail clearfix">
     <p>タイトル</p>
     <%= @post.title %>
     <p>著者</p>
@@ -6,10 +6,12 @@
     <p>出版社</p>
     <p>評価</p>
     <p>コメント</p>
+    <div class="post-detail-btn">
+        <%= link_to "/posts/#{@post.id}/edit" do %>
+        <i class="fas fa-pen"></i>
+        <% end %>
+        <%= link_to "/posts/#{@post.id}/destroy", method: "post", data: {confirm: "削除しますか？"} do %>
+        <i class="fas fa-trash"></i>
+        <% end %>
+    </div>
 </div>
-<%= link_to "/posts/#{@post.id}/edit" do %>
-    <i class="fas fa-pen"></i>
-<% end %>
-<%= link_to "/posts/#{@post.id}/destroy", method: "post", data: {confirm: "削除しますか？"} do %>
-    <i class="fas fa-trash"></i>
-<% end %>

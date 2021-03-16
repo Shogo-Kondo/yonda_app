@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row top">
     <div class="col-8">
         <div class="service-title">
             <p>読書管理サービス</p>
@@ -7,11 +7,11 @@
         <div class="service-info">
             <h2>本をもっと身近に</h2>
             <p>yondaは、読後の新鮮な感想を簡単に記録するためのサービスです。</p>
-            <p class="about"><%= link_to("もっと詳しく ", "/about") %><i class="fas fa-chevron-right"></i></p>
+            <p class="about-link"><%= link_to("もっと詳しく ", "/about") %><i class="fas fa-chevron-right"></i></p>
         </div>
     </div>
-    <div class="top-right col-4">
-        <%= link_to("新規登録はこちら", "/signup", {class: "signup-link"}) %>
+    <div class="col-4 top-signup">
+        <p class="signup-link"><%= link_to("新規登録はこちら", "/signup") %></p>
         <p class="description">アカウントを作成する場合は、<br>上記ボタンから登録画面に進んでください。</p>
         <p class="description">アカウントをお持ちの方は<%= link_to("こちら", "/login") %>から<br>ログインしてください。</p>
     </div>

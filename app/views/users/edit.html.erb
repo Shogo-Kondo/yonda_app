@@ -5,16 +5,15 @@
 <% end %>
 
 <%= form_tag("/users/#{@user.id}/update") do %>
-    <div>
-        <p>ニックネーム</p>
-        <input name="nickname" value="<%= @user.nickname %>">
+    <div class="update-form">
+        <i class="fas fa-user"></i><input name="nickname" value="<%= @user.nickname %>">
         <!--
         <p>ユーザ名</p>
         <input name="user_name" value="<%= @user.user_name %>">
         -->
         <div class="icon"></div>
-        <p>biography</p>
+        <i class="far fa-id-card"></i>
         <textarea name="biography"><%= @user.biography %></textarea>
-        <input type="submit" value="更新">
+        <p class="submit-btn"><input type="submit" value="更新"></p>
     </div>
 <% end %>

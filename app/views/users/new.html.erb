@@ -6,11 +6,20 @@
             <%= message %>
         </div>
     <% end %>
+    <!-- パスワード不一致時アラートを表示 -->
+    <% if @error_message %>
+        <div class="form-error">
+            <%= @error_message %>
+        </div>
+    <% end %>
+    
     <%= form_tag("/users/create") do %>
         <p class="form-item">ユーザー名</p>
         <input name="user_name" value="<%= @user.user_name %>" autocomplete="off">
         <p class="form-item">パスワード</p>
-        <input type="password" name="password" value="<%= @user.password %>" >
+        <input type="password" name="password1">
+        <p class="form-item">パスワード再入力</p>
+        <input type="password" name="password2">
         <p class="signup-btn"><input type="submit" value="新規登録"></p>
     <% end %>
 </div>
