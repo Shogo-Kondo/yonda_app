@@ -18,8 +18,11 @@
             <%= link_to "/users/#{@user.user_name}" do %>
                 <li><i class="far fa-user"></i>プロフィール</li>
             <% end %>
-            <%= link_to "/users/#{@user.user_name}" do %>
-                <li><i class="fas fa-people-arrows"></i>フォローしている人(リンク先未)</li>
+            <%= link_to "/follow" do %>
+                <li><i class="fas fa-people-arrows"></i>フォロー</li>
+            <% end %>
+            <%= link_to "/ranking" do %>
+                <li><i class="fas fa-trophy"></i></i>ランキング</li>
             <% end %>
             <%= link_to "/favorite" do %>
                 <li><i class="far fa-star"></i>お気に入り</li>

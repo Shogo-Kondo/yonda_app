@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   post "posts/:id/destroy" => "posts#destroy"
   get "ranking" => "posts#ranking"
   get "favorite" => "posts#favorite"
+  get "follow" => "posts#follow"
 
   # books controller
   get "book/show" => "books#show"

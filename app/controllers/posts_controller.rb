@@ -54,4 +54,7 @@ class PostsController < ApplicationController
   def favorite
   end
 
+  def follow
+  end
+
 end

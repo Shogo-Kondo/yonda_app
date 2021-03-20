@@ -1,12 +1,14 @@
 <div class="post-detail clearfix">
-    <div class="modify-btn">
-        <%= link_to "/posts/#{@post.id}/edit" do %>
-            <i class="fas fa-pen"></i>
-        <% end %>
-        <%= link_to "/posts/#{@post.id}/destroy", method: "post", data: {confirm: "本当に削除しますか？"} do %>
-            <i class="fas fa-trash"></i>
-        <% end %>
-    </div>
+    <% if @post.posted_user == @current_user.id.to_s %>
+        <div class="modify-btn">
+            <%= link_to "/posts/#{@post.id}/edit" do %>
+                <i class="fas fa-pen"></i>
+            <% end %>
+            <%= link_to "/posts/#{@post.id}/destroy", method: "post", data: {confirm: "本当に削除しますか？"} do %>
+                <i class="fas fa-trash"></i>
+            <% end %>
+        </div>
+    <% end %>
     <p class="post-detail-item">タイトル</p>
     <p class="post-detail-content"><%= @post.title %></p>
     <p class="post-detail-item">著者</p>
