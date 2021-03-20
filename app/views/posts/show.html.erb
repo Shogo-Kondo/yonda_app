@@ -1,17 +1,19 @@
 <div class="post-detail clearfix">
-    <p>タイトル</p>
-    <%= @post.title %>
-    <p>著者</p>
-    <%= @post.author %>
-    <p>出版社</p>
-    <p>評価</p>
-    <p>コメント</p>
-    <div class="post-detail-btn">
+    <div class="modify-btn">
         <%= link_to "/posts/#{@post.id}/edit" do %>
-        <i class="fas fa-pen"></i>
+            <i class="fas fa-pen"></i>
         <% end %>
-        <%= link_to "/posts/#{@post.id}/destroy", method: "post", data: {confirm: "削除しますか？"} do %>
-        <i class="fas fa-trash"></i>
+        <%= link_to "/posts/#{@post.id}/destroy", method: "post", data: {confirm: "本当に削除しますか？"} do %>
+            <i class="fas fa-trash"></i>
         <% end %>
     </div>
+    <p class="post-detail-item">タイトル</p>
+    <p class="post-detail-content"><%= @post.title %></p>
+    <p class="post-detail-item">著者</p>
+    <p class="post-detail-content"><%= @post.author %></p>
+    <p class="post-detail-item">出版社</p>
+    <p class="post-detail-content"><%= @post.publisher %></p>
+    <p class="post-detail-item">コメント</p>
+    <p class="post-detail-content"><%= @post.content %></p>
+    <p class="post-time"><%= @post.created_at.strftime("%Y/%m/%d %H:%M") %></p>
 </div>

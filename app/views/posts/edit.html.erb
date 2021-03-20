@@ -1,19 +1,18 @@
-<% @post.errors.full_messages.each do |msg| %>
-    <div class="form-error">
-    <%= msg %>
-    </div>
-<% end %>
-
-<%= form_tag("/posts/#{@post.id}/update") do %>
-    <div class="post-update">
-        <p>タイトル</p>
-        <input value="<%= @post.title %>" name="title">
-        <p>著者</p>
-        <input value="<%= @post.author %>" name="author">
-        <p>出版社</p>
-        <p>評価</p>
-        <p>コメント</p>
-        <textarea value="<%= @post.content %>" name="content"></textarea>
-        <input type="submit" value="更新">
-    </div>
-<% end %>
+<div class="post-update">
+    <% @post.errors.full_messages.each do |message| %>
+        <div class="form-error">
+            <%= message %>
+        </div>
+    <% end %>
+    <%= form_tag("/posts/#{@post.id}/update") do %>
+        <p class="post-detail-item">タイトル</p>
+        <input value="<%= @post.title %>" name="title" autocomplete="off">
+        <p class="post-detail-item">著者</p>
+        <input value="<%= @post.author %>" name="author" autocomplete="off">
+        <p class="post-detail-item">出版社</p>
+        <input value="<%= @post.publisher %>" name="publisher" autocomplete="off">
+        <p class="post-detail-item">コメント</p>
+        <textarea name="content"><%= @post.content %></textarea>
+        <p class="update-btn"><input type="submit" value="更新"></p>
+    <% end %>
+</div>

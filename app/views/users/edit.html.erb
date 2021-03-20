@@ -1,19 +1,17 @@
-<% @user.errors.full_messages.each do |msg| %>
-    <div class="form-error">
-        <%= msg %>
-    </div>
-<% end %>
-
-<%= form_tag("/users/#{@user.id}/update") do %>
-    <div class="update-form">
-        <i class="fas fa-user"></i><input name="nickname" value="<%= @user.nickname %>">
-        <!--
-        <p>ユーザ名</p>
-        <input name="user_name" value="<%= @user.user_name %>">
-        -->
-        <div class="icon"></div>
-        <i class="far fa-id-card"></i>
+<div class="update-form">
+    <%= form_tag("/users/#{@user.id}/update") do %>
+    <!--
+    <% @user.errors.full_messages.each do |message| %>
+        <div class="form-error">
+            <%= message %>
+        </div>
+    <% end %>
+    -->
+        <!-- <div class="icon"></div> -->
+        <p class="form-item">ニックネーム</p>
+        <input name="nickname" value="<%= @user.nickname %>" autocomplete="off">
+        <p class="form-item">自己紹介</p>
         <textarea name="biography"><%= @user.biography %></textarea>
-        <p class="submit-btn"><input type="submit" value="更新"></p>
-    </div>
-<% end %>
+        <p class="update-btn"><input type="submit" value="更新"></p>
+    <% end %>
+</div>

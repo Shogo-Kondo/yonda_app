@@ -4,12 +4,11 @@ class UsersController < ApplicationController
   before_action :ensure_correct_user, {only: [:edit, :update]}
 
   def index
-    @users = User.all
+    @user = User.find_by(user_name: params[:user_name])
+    @posts = Post.where(posted_user: @user.id).order(created_at: :desc).page(params[:page]).per(30)
   end
 
   def show
-    @user = User.find_by(id: params[:id])
-    @posts = Post.where(posted_user: @user.id).order(created_at: :desc).page(params[:page]).per(2)
   end
 
   def new
@@ -22,7 +21,7 @@ class UsersController < ApplicationController
     if params[:password1] == params[:password2]
       if @user.save
         session[:user_id] = @user.id
-        redirect_to("/users/#{@user.id}")
+        redirect_to("/users/#{@user.user_name}")
       else
         render("users/new")
       end
@@ -42,7 +41,7 @@ class UsersController < ApplicationController
     # @user.user_name = params[:user_name]
     @user.biography = params[:biography]
     if @user.save
-      redirect_to("/users/#{@user.id}")
+      redirect_to("/users/#{@user.user_name}")
     else
       render("users/edit")
     end
@@ -53,9 +52,10 @@ class UsersController < ApplicationController
 
   def login
     @user = User.find_by(user_name: params[:user_name], password: params[:password])
+
     if @user
       session[:user_id] = @user.id
-      redirect_to("/users/#{@user.id}")
+      redirect_to("/users/#{@user.user_name}")
     else
       @error_message = "メールアドレスまたはパスワードが間違っています"
       @user_name = params[:user_name]

@@ -1,1 +1,48 @@
-<h1>Users#index</h1>
+<div class="post-btn">
+    <%= link_to("投稿", "/posts/new") %>
+</div>
+<div class="row">
+    <div class="col-4">
+        <ul class="user-profile clearfix">
+            <% if @user.id == @current_user.id %>
+                <%= link_to "/users/#{@user.id}/edit" do %>
+                    <i class="fas fa-pen"></i>
+                <% end %>
+            <% end %>
+            <li class="nickname"><%= @user.nickname %></li>
+            <li class="user-id"><%= "@" %><%= @user.user_name %></li>
+            <!-- <div class="icon"></div> -->
+            <li class="biography"><%= safe_join(@user.biography.split("\n"),tag(:br)) %></li>
+        </ul>
+        <ul class="user-menu">
+            <%= link_to "/users/#{@user.user_name}" do %>
+                <li><i class="far fa-user"></i>プロフィール</li>
+            <% end %>
+            <%= link_to "/users/#{@user.user_name}" do %>
+                <li><i class="fas fa-people-arrows"></i>フォローしている人(リンク先未)</li>
+            <% end %>
+            <%= link_to "/favorite" do %>
+                <li><i class="far fa-star"></i>お気に入り</li>
+            <% end %>
+        </ul>
+    </div>
+    <div class="col-8">
+        <div class="user-posts">
+            <% @posts.each do |post| %>
+                <div class="post-item">
+                    <%= link_to  "/posts/#{post.id}" do %>
+                        <div class="clearfix">
+                            <p class="post-user-name"><%= @user.nickname %></p>
+                            <p class="post-user-id"><%= "@" %><%= @user.user_name %></p>
+                        </div>
+                        <p class="post-title"><i class="fa fa-book" aria-hidden="true"></i><%= post.title %></p>
+                        <p class="post-author"><i class="fa fa-user" aria-hidden="true"></i><%= post.author%></p>
+                        <p class="post-date"><%= post.created_at.strftime("%Y/%m/%d") %></p>
+                    <% end %>
+                </div>                
+            <% end %>
+        </div>
+        <!-- ページネーション -->
+        <%= paginate @posts %>
+    </div>
+</div>
