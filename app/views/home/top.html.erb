@@ -1,18 +1,53 @@
-<div class="row top">
-    <div class="col-8">
-        <div class="service-title">
-            <p>読書管理サービス</p>
-            <h1>youda</h1>
-        </div>
-        <div class="service-info">
+<div class="top">
+    <%= link_to("about") do %>
+        <div class="top-about-service mt-4">
             <h2>本をもっと身近に</h2>
             <p>yondaは、読後の新鮮な感想を簡単に記録するためのサービスです。</p>
-            <p class="about-link"><%= link_to("もっと詳しく ", "/about") %><i class="fas fa-chevron-right"></i></p>
         </div>
-    </div>
-    <div class="col-4 top-signup">
-        <p class="signup-link"><%= link_to("新規登録はこちら", "/signup") %></p>
-        <p class="description">アカウントを作成する場合は、<br>上記ボタンから登録画面に進んでください。</p>
-        <p class="description">アカウントをお持ちの方は<%= link_to("こちら", "/login") %>から<br>ログインしてください。</p>
+    <% end %>
+    <div class="row mt-4 mb-5">
+        <div class="col-8">
+            <p class="recently-posts-title">最近の投稿</p>
+            <div class="recently-posts p-3">
+                <% i = 0 %>
+                <% @recently_posts.first(6).each do |post| %>
+                    <div class="recently-post-item clearfix">
+                        <%= link_to  "#" do %>
+                            <div class="recently-post-item-img top-calligraphy<%= i %> img-thumbnail"></div>
+                            <div class="recently-post-item-description">
+                                <p class="recently-post-title"><i class="fa fa-book" aria-hidden="true"></i><%= post.title %></p>
+                                <p class="recently-post-author"><i class="fa fa-user" aria-hidden="true"></i><%= post.author%></p>
+                            </div>
+                        <% end %>
+                    </div>
+                    <script>
+                        $(function() {
+                            let url = "https://api.openbd.jp/v1/get?isbn=" + '<%= post.isbn_code %>';
+                            $.getJSON( url, function( data ) {
+                                if( data[0].summary.cover == "" ){
+                                    $(".top-calligraphy<%= i %>").html('<span>no image</span>');
+                                } else {
+                                    $('.top-calligraphy<%= i %>').html('<img src=\"' + data[0].summary.cover + '\">');
+                                }
+                            });
+                        });
+                    </script>
+                    <% i+=1 %>
+                <% end %>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="top-keyword-search">
+                <input type="text" placeholder="  タイトル・著者名">
+                <span class="search-icon"><i class="fas fa-search"></i></span>
+            </div>
+            <div class="top-signup mt-4">
+                <%= link_to("/signup") do %>
+                    <p class="top-signup-btn">新規登録はこちら</p>
+                <% end %>
+                <p class="top-signup-description">アカウントを作成する場合は、<br>上記ボタンから登録画面に進んでください。</p>
+                <p class="top-signup-description">アカウントをお持ちの方は<%= link_to("こちら", "/login") %>から<br>ログインしてください。</p>
+            </div>
+        </div>
     </div>
 </div>

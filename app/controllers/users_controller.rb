@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def index
     @user = User.find_by(user_name: params[:user_name])
-    @posts = Post.where(posted_user: @user.id).order(created_at: :desc).page(params[:page]).per(30)
+    @myposts = Post.where(posted_user: @user.id).order(created_at: :desc).page(params[:page]).per(20)
   end
 
   def show
@@ -32,11 +32,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find_by(id: params[:id])
+    @user = User.find_by(user_name: params[:user_name])
   end
 
   def update
-    @user = User.find_by(id: params[:id])
+    @user = User.find_by(user_name: params[:user_name])
     @user.nickname = params[:nickname]
     # @user.user_name = params[:user_name]
     @user.biography = params[:biography]
@@ -70,8 +70,9 @@ class UsersController < ApplicationController
   end
 
   def ensure_correct_user
-    if @current_user.id != params[:id].to_i
-      redirect_to("/posts/index")
+    if @current_user.user_name != params[:user_name]
+      flash[:notice] = "権限がありません"
+      redirect_to("/users/#{@current_user.user_name}")
     end
   end
 

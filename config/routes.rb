@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   get "login" => "users#login_form"
   post "login" => "users#login"
   post "logout" => "users#logout"
-  get "users/:id/edit" => "users#edit"
-  post "users/:id/update" => "users#update"
+  get "users/:user_name/edit" => "users#edit"
+  post "users/:user_name/update" => "users#update"
   get "users/:user_name" => "users#index"
 
   # posts controller
@@ -27,6 +27,6 @@ Rails.application.routes.draw do
   get "follow" => "posts#follow"
 
   # books controller
-  get "book/show" => "books#show"
+  get "books/show/:id" => "books#show"
 
 end

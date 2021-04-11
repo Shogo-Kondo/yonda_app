@@ -90,6 +90,27 @@
     margin: 10px 0 0;
     border-bottom: none;
     border-radius: 3px;
-    background-color: #008080;
+    background-color: #d9b44a;
     color: #fff;
+}
+
+.get-book-info {
+    width: 100%;
+    margin-top: 22px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border-radius: 3px;
+    background-color: #d9b44a;
+    color: #fff;
+    text-align: center;
+}
+
+.post-btn input:hover,
+.get-book-info-btn:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.required {
+    color: #ff0000;
 }

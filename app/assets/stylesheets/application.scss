@@ -20,6 +20,7 @@
 // common
 .container {
     padding: 0;
+    color: #4f6457;
 }
 
 a:hover {
@@ -30,7 +31,7 @@ a:hover {
 // header
 header {
     height: 70px;
-    background-color: #07575b;
+    background-color: #4f6457;
 }
 
 .header-logo {
@@ -48,6 +49,7 @@ header {
 .header-menu {
     float: right;
     line-height: 70px;
+    padding: 0;
 }
 
 .header-item {
@@ -65,9 +67,36 @@ header {
     padding-right: 5px;
 }
 
+.keyword-search {
+    position: relative;
+    float: right;
+    line-height: 70px;
+}
+
+.keyword-search-input {
+    width: 250px;
+    height: 50px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 18px;
+
+}
+
+.keyword-search-input:focus {
+    outline: none;
+}
+
+.keyword-search-icon {
+    position: absolute;
+    top: 0;
+    right: 16px;
+    color: #808080;
+}
+
 ///// main /////
 main {
-    background-color: #c4dfe6;
+    background-color: #f5f5f5;
 }
 
 #wrap {
@@ -84,5 +113,13 @@ footer {
 .footer-logo {
     line-height: 50px;
     font-size: 16px;
+    text-align: center;
+}
+
+// flashメッセージ
+.flash-msg {
+    width: 400px;
+    margin: 0 auto;
+    color: #ff0000;
     text-align: center;
 }

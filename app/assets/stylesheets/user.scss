@@ -21,7 +21,6 @@
 }
 
 .form-title {
-    color: #4d5156;
     font-size: 16px;
     font-weight: bold;
     text-align: center;
@@ -68,8 +67,15 @@
     margin: 10px 0 0;
     border-bottom: none;
     border-radius: 3px;
-    background-color: #008080;
+    background-color: #d9b44a;
     color: #fff;
+}
+
+.login-btn input:hover,
+.signup-btn input:hover,
+.update-btn input:hover {
+    opacity: 0.8;
+    cursor: pointer;
 }
 
 .form-error {
@@ -91,7 +97,7 @@
 .post-btn a {
     padding: 10px 30px;
     border-radius: 5px;
-    background-color: #008080;
+    background-color: #75b1a9;
     color: #fff;
     font-size: 18px;
 }
@@ -128,10 +134,11 @@
 }
 
 .biography {
-    padding: 3px;
+    padding: 5px;
     margin-top: 15px;
     border-radius: 3px;
     background-color: #f5f5f5;
+    font-size: 12px;
 }
 
 .user-menu {
@@ -153,8 +160,31 @@
 }
 
 .user-menu li:hover {
-    background-color: #4d5156;
+    background-color: #75b1a9;
     color: #fff;
+}
+
+.usertop-keyword-search {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.usertop-keyword-search input {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #4d5156;
+    border-radius: 3px;
+}
+
+.usertop-keyword-search input:focus {
+    outline: none;
+    border: 2px solid #75b1a9;
+}
+
+.search-icon {
+    position: absolute;
+    top: 8px;
+    right: 12px;
 }
 
 
@@ -172,6 +202,10 @@
 
 .post-item:hover {
     opacity: 0.6;
+}
+
+.post-item-info {
+    float: left;
 }
 
 .post-item p {
@@ -214,4 +248,12 @@
     color: #808080;
     font-size: 12px;
     letter-spacing: 1px;
+}
+
+.calligraphy {
+    float: right;
+}
+
+.calligraphy img {
+    height: 100px;
 }

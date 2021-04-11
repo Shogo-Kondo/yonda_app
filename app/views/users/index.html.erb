@@ -5,15 +5,18 @@
     <div class="col-4">
         <ul class="user-profile clearfix">
             <% if @user.id == @current_user.id %>
-                <%= link_to "/users/#{@user.id}/edit" do %>
+                <%= link_to "/users/#{@user.user_name}/edit" do %>
                     <i class="fas fa-pen"></i>
                 <% end %>
             <% end %>
             <li class="nickname"><%= @user.nickname %></li>
             <li class="user-id"><%= "@" %><%= @user.user_name %></li>
-            <!-- <div class="icon"></div> -->
             <li class="biography"><%= safe_join(@user.biography.split("\n"),tag(:br)) %></li>
         </ul>
+        <div class="usertop-keyword-search">
+            <input type="text" placeholder="  タイトル・著者名">
+            <span class="search-icon"><i class="fas fa-search"></i></span>
+        </div>
         <ul class="user-menu">
             <%= link_to "/users/#{@user.user_name}" do %>
                 <li><i class="far fa-user"></i>プロフィール</li>
@@ -31,21 +34,34 @@
     </div>
     <div class="col-8">
         <div class="user-posts">
-            <% @posts.each do |post| %>
-                <div class="post-item">
+            <% i = 0 %>
+            <% @myposts.each do |post| %>
+                <div class="post-item clearfix">
                     <%= link_to  "/posts/#{post.id}" do %>
-                        <div class="clearfix">
-                            <p class="post-user-name"><%= @user.nickname %></p>
-                            <p class="post-user-id"><%= "@" %><%= @user.user_name %></p>
+                        <div class="post-item-info">
+                            <div class="clearfix">
+                                <p class="post-user-name"><%= @user.nickname %></p>
+                                <p class="post-user-id"><%= "@" %><%= @user.user_name %></p>
+                            </div>
+                            <p class="post-title"><i class="fa fa-book" aria-hidden="true"></i><%= post.title %></p>
+                            <p class="post-author"><i class="fa fa-user" aria-hidden="true"></i><%= post.author%></p>
+                            <p class="post-date"><%= post.created_at.strftime("%Y/%m/%d") %></p>
                         </div>
-                        <p class="post-title"><i class="fa fa-book" aria-hidden="true"></i><%= post.title %></p>
-                        <p class="post-author"><i class="fa fa-user" aria-hidden="true"></i><%= post.author%></p>
-                        <p class="post-date"><%= post.created_at.strftime("%Y/%m/%d") %></p>
+                        <div class="calligraphy calligraphy<%= i %> img-thumbnail"></div>
                     <% end %>
-                </div>                
+                </div>
+                <script>
+                    $(function() {
+                        let url = "https://api.openbd.jp/v1/get?isbn=" + '<%= post.isbn_code %>';
+                        $.getJSON( url, function( data ) {
+                            $('.calligraphy<%= i %>').html('<img src=\"' + data[0].summary.cover + '\">');
+                        });
+                    });
+                </script>
+                <% i+=1 %>
             <% end %>
         </div>
         <!-- ページネーション -->
-        <%= paginate @posts %>
+        <%= paginate @myposts %>
     </div>
 </div>

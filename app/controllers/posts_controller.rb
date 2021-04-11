@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user
+  before_action :authenticate_user, {only: [:index, :show, :new, :create, :edit, :update, :destroy]}
 
   def index
-    # @posts = Post.all.order(created_at: :desc).page(params[:page])
+    @posts = Post.all.order(created_at: :desc)
   end
 
   def show
@@ -14,8 +14,14 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(title: params[:title], author: params[:author], content: params[:content], posted_user: @current_user.id)
+    @post = Post.new(title: params[:title], author: params[:author], publisher: params[:publisher], content: params[:content], posted_user: @current_user.id, isbn_code: params[:isbn])
     if @post.save
+      if @post.isbn_code != nil
+        if Book.where(title: @post.title).empty?
+          @book = Book.new(title: params[:title], author: params[:author], publisher: params[:publisher], isbn_code: params[:isbn])
+          @book.save
+        end
+      end
       redirect_to("/users/#{@current_user.user_name}")
     else
       render("posts/new")
