@@ -1,10 +1,49 @@
 <div class="row">
     <div class="col-4 book-info">
-        <%= @book.title %>
-        <%= @book.author %>
-        <%= @book.publisher %>
+        <% if @book.isbn_code != nil && @book.isbn_code != "" %>
+            <div class="show-calligraphy"></div>
+        <% else %>
+            <div class="show-calligraphy"><p class="user-no-img">no image</p></div>
+        <% end %>
+        <div class="book-info">
+            <p class="book-info-item">タイトル</p>
+            <p><%= @book.title %></p>
+        </div>
+        <div class="book-info">
+            <p class="book-info-item">著者</p>
+            <p><%= @book.author %></p>
+        </div>
+        <p class="book-info">
+            <p class="book-info-item">出版社</p>
+            <p><%= @book.publisher %></p>
+        </p>
     </div>
-    <div class="col-8">
-        review
+    <div class="col-8 ">
+        <div class="reviews">
+            <% @reviews.each do |review| %>
+                <div class="review-item">
+                    <% @users.each do |user| %>
+                        <% if review.posted_user == user.id.to_s %>
+                            <p class="rev-nickname"><%= user.nickname %></p>
+                            <p class="rev-date"><%= review.created_at.strftime("%Y/%m/%d") %></p>
+                        <% end %>
+                    <% end %>
+                    <%= simple_format(review.content) %>
+                </div>
+            <% end %>
+        </div>
     </div>
 </div>
+
+<script>
+    $(function() {
+        let url = "https://api.openbd.jp/v1/get?isbn=" + '<%= @book.isbn_code %>';
+        $.getJSON( url, function( data ) {
+            if( data[0].summary.cover == "" ){
+                $(".show-calligraphy").html('<p class="user-no-img">no image</p>');
+            } else {
+                $('.show-calligraphy').html('<img src=\"' + data[0].summary.cover + '\">');
+            }
+        });
+    });
+</script>

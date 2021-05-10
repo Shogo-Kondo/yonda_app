@@ -1,3 +1,8 @@
+<% if @error_message %>
+    <div class="form-error">
+        <%= @error_message %>
+    </div>
+<% end %>
 <div class="post-btn">
     <%= link_to("投稿", "/posts/new") %>
 </div>
@@ -13,10 +18,13 @@
             <li class="user-id"><%= "@" %><%= @user.user_name %></li>
             <li class="biography"><%= safe_join(@user.biography.split("\n"),tag(:br)) %></li>
         </ul>
-        <div class="usertop-keyword-search">
-            <input type="text" placeholder="  タイトル・著者名">
-            <span class="search-icon"><i class="fas fa-search"></i></span>
+        <div class="top-keyword-search mb-3">
+            <%= form_tag("/books/search") do %>
+                <input type="text" name="search" placeholder="  タイトル・著者名" autocomplete="off">
+                <button type="submit" class="top-search-btn"><i class="fas fa-search"></i></button>
+            <% end %>
         </div>
+        <!--
         <ul class="user-menu">
             <%= link_to "/users/#{@user.user_name}" do %>
                 <li><i class="far fa-user"></i>プロフィール</li>
@@ -29,8 +37,9 @@
             <% end %>
             <%= link_to "/favorite" do %>
                 <li><i class="far fa-star"></i>お気に入り</li>
-            <% end %>
+            <% end %> 
         </ul>
+        -->
     </div>
     <div class="col-8">
         <div class="user-posts">
@@ -47,14 +56,22 @@
                             <p class="post-author"><i class="fa fa-user" aria-hidden="true"></i><%= post.author%></p>
                             <p class="post-date"><%= post.created_at.strftime("%Y/%m/%d") %></p>
                         </div>
-                        <div class="calligraphy calligraphy<%= i %> img-thumbnail"></div>
+                        <% if post.isbn_code != nil && post.isbn_code != "" %>
+                            <div class="calligraphy calligraphy<%= i %> img-thumbnail"></div>
+                        <% else %>
+                            <div class="calligraphy img-thumbnail"><p class="user-no-img">no image</p></div>
+                        <% end %>
                     <% end %>
                 </div>
                 <script>
                     $(function() {
                         let url = "https://api.openbd.jp/v1/get?isbn=" + '<%= post.isbn_code %>';
                         $.getJSON( url, function( data ) {
-                            $('.calligraphy<%= i %>').html('<img src=\"' + data[0].summary.cover + '\">');
+                            if( data[0].summary.cover == "" ){
+                                $(".calligraphy<%= i %>").html('<p class="user-no-img">no image</p>');
+                            } else {
+                                $('.calligraphy<%= i %>').html('<img src=\"' + data[0].summary.cover + '\">');
+                            }
                         });
                     });
                 </script>

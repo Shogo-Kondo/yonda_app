@@ -1,0 +1,10 @@
+<div class="kw-search-result">
+    <% @results.each do |book| %>
+        <div class="search-result-item">
+            <%= link_to  "/books/show/#{book.isbn_code}" do %>
+                <span class="search-result-title"><%= book.title %></span>
+                <span class="search-result-author"><%= book.author %></span>
+            <% end %>
+        </div>
+    <% end %>
+</div>

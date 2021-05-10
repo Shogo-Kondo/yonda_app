@@ -7,8 +7,10 @@ class HomeController < ApplicationController
       x.isbn_code.present?
     end
     @recently_posts = select_posts
-  
     @books = Book.all
+  end
+
+  def about
   end
 
 end

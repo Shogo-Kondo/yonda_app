@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  # home controller
+  #home
   get "/" => "home#top"
   get "about" => "home#about"
 
@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   get "follow" => "posts#follow"
 
   # books controller
-  get "books/show/:id" => "books#show"
+  get "books/show/:isbn_code" => "books#show"
+  post "books/search" => "books#search"
 
 end

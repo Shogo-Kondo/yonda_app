@@ -30,7 +30,7 @@
     $(function() {
         $('#getBookInfo').click( function( e ) {
             e.preventDefault();
-            const isbn = $("#isbn").val();
+            const isbn = $("#isbn").val().replace(/-/g, "");
             const url = "https://api.openbd.jp/v1/get?isbn=" + isbn;
 
             $.getJSON( url, function( data ) {
@@ -40,8 +40,7 @@
                     $("#title").val(data[0].summary.title);
                     $("#author").val(data[0].summary.author.slice(0,-2));
                     $("#publisher").val(data[0].summary.publisher);
-                    $("#page").val(data[0].onix.DescriptiveDetail.Extent[0].ExtentValue);
-                }
+                    $("#page").val(data[0].onix.DescriptiveDetail.Extent[0].ExtentValue);                }
             });
         });
     });

@@ -14,11 +14,11 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(title: params[:title], author: params[:author], publisher: params[:publisher], content: params[:content], posted_user: @current_user.id, isbn_code: params[:isbn])
+    @post = Post.new(title: params[:title], author: params[:author], publisher: params[:publisher], content: params[:content], posted_user: @current_user.id, isbn_code: params[:isbn].gsub(/-/,""))
     if @post.save
       if @post.isbn_code != nil
         if Book.where(title: @post.title).empty?
-          @book = Book.new(title: params[:title], author: params[:author], publisher: params[:publisher], isbn_code: params[:isbn])
+          @book = Book.new(title: params[:title], author: params[:author], publisher: params[:publisher], isbn_code: params[:isbn].gsub(/-/,""))
           @book.save
         end
       end

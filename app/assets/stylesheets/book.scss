@@ -1,3 +1,69 @@
 // Place all the styles related to the book controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.kw-search-result {
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+
+.search-result-item {
+    padding: 15px;
+    border-bottom: solid 1px #808080;
+}
+
+.search-result-item a {
+    color: inherit;
+}
+
+.search-result-title {
+    padding-right: 10px;
+}
+
+.show-calligraphy img {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.book-info {
+    margin-bottom: 4px;
+    font-size: 16px;
+}
+
+.book-info-item {
+    font-size: 12px;
+    margin-bottom: 3px;
+}
+
+.reviews {
+    margin-bottom: 30px;
+    border-radius: 3px;
+    background-color: #fff;
+}
+
+.review-item {
+    padding: 10px 15px;
+    border-bottom: solid 1px #a9a9a9;
+}
+
+.review-item:last-child {
+    padding: 10px 15px;
+    border-bottom: none;
+}
+
+.rev-nickname {
+    margin-bottom: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.rev-date {
+    margin-bottom: 10px;
+    color: #808080;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.rev-content {
+    margin-bottom: 0;
+}

@@ -2,6 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+// common
+.home-btn {
+    padding: 15px 0;
+    border-radius: 3px;
+    background-color: #d9b44a;
+    color: #fff;
+    text-align: center;
+}
+
+.home-btn:hover {
+    opacity: 0.9;
+}
+
+
 // top
 .top-about-service {
     padding: 90px 40px;
@@ -29,22 +43,29 @@
     background-color: #fff;
 }
 
+.recently-posts a {
+    color: inherit;
+}
+
+.recently-posts a:hover {
+    color: inherit;
+}
+
 .recently-post-item {
+    list-style: none;
     padding: 20px;
+}
+
+.line {
     border-bottom: solid 1px #4d5156;
 }
 
-.recently-post-item a {
-    color: inherit;
+.line:last-child {
+    border-bottom: none
 }
 
 .recently-post-item a:hover {
     color: inherit;
-    opacity: 0.8;
-}
-
-.recently-post-item:last-child {
-    border: none;
 }
 
 .recently-post-item-img {
@@ -56,19 +77,28 @@
     height: 90px;
 }
 
-.recently-post-item-description {
-    float: left;
+.no-img {
+    height: 90px;
+    line-height: 90px;
+    margin-bottom: 0;
+    font-size: 14px;
 }
 
-.recently-post-item-description i {
+.recently-post-item-info {
+    float: left;
+    width: 450px;
+}
+
+.recently-post-item-info i {
     margin-right: 8px;
 }
 
-.recently-post-title,
-.recently-post-author {
-    margin-bottom: 0;
+.recently-post-title {
+    margin-bottom: 5px;
 }
 
+
+// キーワード検索
 .top-keyword-search {
     position: relative;
 }
@@ -84,29 +114,22 @@
     outline: none;
 }
 
-.search-icon {
+.top-search-btn {
     position: absolute;
     top: 8px;
-    right: 12px;
-}
-
-.top-signup-btn,
-.about-signup-btn {
-    padding: 15px 0;
-    border-radius: 3px;
-    background-color: #d9b44a;
-    color: #fff;
-    text-align: center;
-}
-
-.top-signup-btn:hover,
-.about-signup-btn:hover {
-    opacity: 0.8;
+    right: 10px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
 }
 
 .top-signup-description {
     font-size: 14px;
 }
+
 
 // about
 .about-service {
